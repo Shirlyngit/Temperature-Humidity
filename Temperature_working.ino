@@ -9,20 +9,23 @@
 //Declare DHT object:
 DHT dht(DHTPIN, DHTTYPE);
 //Intialize the sensor.
-int myNumb;
+int myNumb; 
+//Commented the int Numb
 int buzzPin=8;
-int dt=2000; //2 seconds
+//commented the buzz numb
+int dt=2000; //3 seconds
+
 
 
 
 void setup (){
-  Serial.begin(9600); 
+  Serial.begin(115200); 
   dht.begin();
     pinMode(buzzPin,OUTPUT);
 }
 
 void loop (){
-// delay(300000);
+// delay(2);
  delay(1000);
 //read humidity
 float humi = dht.readHumidity();
@@ -39,6 +42,7 @@ float tempF = dht.readTemperature(true);
     delay(dt);
     digitalWrite(buzzPin, LOW);
   }
+  //commented by shirlyne
 
 //check if any reads failed
 if (isnan(humi) || isnan(tempC) || isnan(tempF)){
